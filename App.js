@@ -47,7 +47,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Casos de Covid-19</Text>
-      <Text>Data de atualização:<Text> {date.slice(0, 10)}</Text></Text>
+      <Text style={styles.dateInfo}>Data de atualização:<Text> {date.slice(0, 10)}</Text></Text>
       <PieChart
         style={{height: 300}}
         data={pieData}
@@ -58,7 +58,7 @@ export default function App() {
         showsHorizontalScrollIndicator={false}
       >
         {casesData.map((value, index) => (
-          <View style={styles.caseContent}>
+          <View style={styles.caseContent} key={casesData[index].title}>
               <View style={{
                 width: 3,
                 height: "100%",
@@ -72,6 +72,9 @@ export default function App() {
           </View>
         ))}
       </ScrollView>
+      <View style={styles.footer}>
+          <Text style={styles.fontText}>Fontes: WHO</Text>
+      </View>
     </View>
   );
 }
@@ -80,12 +83,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    paddingHorizontal: 15
+    paddingHorizontal: 15,
+    paddingBottom: 5,
   },
   title: {
     marginTop: 40,
     fontSize: 24,
     fontWeight: "bold",
+  },
+  dateInfo: {
+    marginBottom: 20
   },
   casesContainer: {
     marginTop: 20,
@@ -105,4 +112,10 @@ const styles = StyleSheet.create({
   caseTitle: {
     fontWeight: "bold"
   },
+  footer: {},
+  fontText: {
+    fontSize: 10,
+    color: "#ccc",
+    textAlign: "center"
+  }
 });
