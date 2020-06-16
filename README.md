@@ -17,5 +17,7 @@ expo start
 * Ler o QRcode
 * Assim o app já estará funcionando
 
+## Agradecimentos 
+[devarthurribeiro](https://github.com/devarthurribeiro/covid19-brazil-api) por disponibilizar a api utilizada no app
 
 **Curtiu a ideia?** deixe seu feedback!
